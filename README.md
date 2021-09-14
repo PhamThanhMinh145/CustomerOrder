@@ -1,4 +1,4 @@
-<h1 align="center">HKT Book Store Management</h1>
+<h1 align="center">Product Management and Order</h1>
 
 <h3 align="right">Languages and Tools</h3>
 
