@@ -45,9 +45,11 @@ The category.dat file has stored category information including categoryID and n
 
 6. Order Product of Customer
 
-7. Show order product of customer report and save to file "order.dat"
+7. Show order
 
-8. Save To file
+8. Show order product of customer report and save to file "order.dat"
+
+9. Save To file
 
 <p>Each product has the properties such that productID, pName, price, quatity and categoryID.</p>
 <p>Each category has some information: categoryID, name.</p>

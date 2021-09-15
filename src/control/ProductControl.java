@@ -630,8 +630,7 @@ public class ProductControl {
 
         }while(notify.equalsIgnoreCase("Y"));
     }
-    
-    
+
     // 4. UPDATE CATEGORY
     public void updateCategory(){
          Menu menu = new Menu("Update and Detele CATEGORY");
@@ -780,15 +779,51 @@ public class ProductControl {
     public void displayCustomer(){
       String  msg = String.format("|%-25s|%-7s|%-15s|%-15s|",
                 "Name's product","Quatity","Price", "Amount");
-    
+      
+      double total= 0;
+      
         for(Customer c: cusList){
             System.out.println("Customer: " + c.getCustomerName());
             System.out.println(msg);
            
             for(Order o : c.getListOrder()){
                 o.showOrder();
+                total += o.getAmount();
             }
+            String msg1 = String .format("%9.0f VND", total );
+             System.out.println( "Total: " + msg1);       
         }
+    }
+    
+       public void showOrder() {
+           String cusName, notify;
+           double total= 0;
+           
+                do{
+            cusName = CheckValidation.getStringNoFormat("Your name: ", "name is required");
+            if(cusList.isEmpty())
+                System.out.println("Not found");
+            if(cusList != null)
+            {
+                String  msg = String.format("|%-25s|%-7s|%-15s|%-15s|",
+                "Name's product","Quatity","Price", "Amount");
+                for(int i = 0 ; i < cusList.size() ; i++){
+                    if(cusList.get(i).getCustomerName().equals(cusName)){
+                        System.out.println(msg);
+                         for(Order o : cusList.get(i).getListOrder()){
+                             o.showOrder();
+                         total += o.getAmount();
+                         }
+                         String msg1 = String .format("%9.0f VND", total );
+                         System.out.println( "Total: " + msg1);  
+                    }         
+                 }
+            }
+            notify = CheckValidation.getString("Do you waanna continue to Search (Y/N) ",
+                    "Input is required." , "[Y-y|N-n]{1}");
+         
+        }while(notify.equalsIgnoreCase("Y"));
+ 
     }
     
     
@@ -817,7 +852,6 @@ public class ProductControl {
         }
         
     }
-    
-    
+ 
 }
 

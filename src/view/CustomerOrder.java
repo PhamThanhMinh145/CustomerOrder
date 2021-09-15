@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import control.Menu;
 import control.ProductControl;
 
-/**
- *
- * @author thanh
- */
+
 public class CustomerOrder {
 
     public static void main(String[] args) {
@@ -23,9 +16,10 @@ public class CustomerOrder {
         menu.addOption("4. Update category");
         menu.addOption("5. Update product");
         menu.addOption("6. Order product");
-        menu.addOption("7. Show order list of customer");
-        menu.addOption("8. Read date from file!");
-        menu.addOption("9. Exit");
+        menu.addOption("7. Show order");
+        menu.addOption("8. Show order list of customer");
+        menu.addOption("9. Read date from file!");
+        menu.addOption("10. Exit");
 
         //CustomerController
         ProductControl pc = new ProductControl();
@@ -62,10 +56,10 @@ public class CustomerOrder {
                     change = true;
                     break;
                 case 7:
-                    pc.displayCustomer();
-                    pc.saveToFileCustomer("customerOrder.dat");
+                   pc.showOrder();
                     break;
                 case 8:
+                     pc.displayCustomer();
                     break;
                 case 9:
                     if (change == true) {
@@ -74,11 +68,15 @@ public class CustomerOrder {
                         pc.saveToFileCustomer("customerOrder.dat");
                     }
                     change = false;
-                    System.out.println("Thank you. See you again");
+                   
+                case 10:
+                    
+                     System.out.println("Thank you. See you again");
                     break;
+                    
             }
 
-        } while (choice != 9);
+        } while (choice != 10);
     }
 
 }
